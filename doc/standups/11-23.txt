@@ -1,0 +1,56 @@
+
+Name: Taeyang Kim
+
+What have you done since yesterday?
+	-Implemented user login function
+
+What are you planning on doing today?
+       - Finish the uncompleted work of the others.
+
+Any impediments or stumbling blocks?
+ 	-No
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Trying to figure out some problems I encountered last time.
+
+What are you planning on doing today?
+ - Keep working on lists of courses.
+
+Any impediments or stumbling blocks?
+ - N/A
+ 
+ 11.23
+Name: Jiahang Yu
+
+What have you done since yesterday?
+Group meet in tutorial and talking about the process.
+
+What are you planning on doing today? Test some code and keep on working on adding course.
+
+Any impediments or stumbling blocks?
+No
+
+Name: Eric
+
+What have you done since yesterday?
+N/A
+
+What are you planning on doing today?
+N/A
+
+Any impediments or stumbling blocks?
+No
+
+Name: Alexandar
+
+What have you done since yesterday?
+N/A
+
+What are you planning on doing today?
+N/A
+
+Any impediments or stumbling blocks?
+No
+
