@@ -1,0 +1,34 @@
+Name: Taeyang Kim
+
+What have you done since yesterday?
+	-Created UI for user registration
+
+What are you planning on doing today?
+       -	Create DB for user login data
+
+Any impediments or stumbling blocks?
+No
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Going over my duties and learn about what to do for lists of courses.
+
+What are you planning on doing today?
+ - Starting to work on lists of courses: plans and UI.
+
+Any impediments or stumbling blocks?
+ - N/A
+
+Name: Jiahang Yu
+
+What have you done since yesterday?
+Start working on my part.
+
+What are you planning on doing today?
+Starting on figure on the GitHub part.
+
+Any impediments or stumbling blocks?
+No
+
+couldn't reach other two group memebers
