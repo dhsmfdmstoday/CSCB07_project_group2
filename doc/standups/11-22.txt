@@ -1,0 +1,58 @@
+
+Name: Taeyang Kim
+
+What have you done since yesterday?
+	-Create DB for user login data
+
+What are you planning on doing today?
+       - Implement user login function
+
+Any impediments or stumbling blocks?
+ 	-No
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Created DB for user login
+
+What are you planning on doing today?
+      -implement Login function
+
+Any impediments or stumbling blocks?
+ - N/A
+
+
+Name: Jiahang Yu
+
+What have you done since yesterday?
+Find some problem since yesterday.
+
+What are you planning on doing today?
+Keep on working on adding courses.
+
+Any impediments or stumbling blocks?
+No
+
+
+
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+N/A
+
+What are you planning on doing today?
+N/A
+
+Any impediments or stumbling blocks?
+No
+
+Name: Alexander Motor
+
+What have you done since yesterday?
+N/A
+
+What are you planning on doing today?
+N/A
+
+Any impediments or stumbling blocks?
+No
