@@ -1,9 +1,8 @@
 package com.example.project1;
 
-import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="register.db";
@@ -22,12 +21,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID TEXT, Password TEXT, Admin TEXT, Course TEXT)");
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.COL_1,"admin");
-        contentValues.put(DatabaseHelper.COL_2,"admin");
-        contentValues.put(DatabaseHelper.COL_3,"1");
-        contentValues.put(DatabaseHelper.COL_4,"");
-        long id = db.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
+        Model model = new Model(db);
+        model.insertdataAdmin("admin","admin");
+        model.insertdataUser("abc","abc_password");
     }
 
     @Override

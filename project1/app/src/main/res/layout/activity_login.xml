@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Login"
+        android:onClick="checkLogin"
         app:layout_constraintEnd_toEndOf="@+id/et_password_login"
         app:layout_constraintStart_toStartOf="@+id/et_password_login"
         app:layout_constraintTop_toBottomOf="@+id/et_password_login" />
@@ -47,9 +48,23 @@
         android:id="@+id/register_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="24dp"
         android:text="register"
+        android:onClick="handleClick"
         app:layout_constraintEnd_toEndOf="@+id/Login"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Login"
         app:layout_constraintTop_toBottomOf="@+id/Login" />
+
+    <TextView
+        android:id="@+id/message_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="checkLogin"
+        android:text="Admin username and password are both &quot;admin&quot;"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
