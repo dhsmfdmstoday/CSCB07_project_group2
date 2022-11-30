@@ -1,4 +1,4 @@
-package UnitTest;
+package com.example.project1;
 
 import org.junit.Test;
 
