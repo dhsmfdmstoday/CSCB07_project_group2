@@ -1,21 +1,26 @@
 package com.example.project1;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class RegisterActivity extends AppCompatActivity {
-    SQLiteOpenHelper openHelper;
-    SQLiteDatabase db;
+
     Model model;
     private Presenter presenter;
+    private FirebaseAuth nFirebaseAuth=FirebaseAuth.getInstance(); //firebase authentication
+    private DatabaseReference mDataRef = FirebaseDatabase.getInstance().getReference("project1");; // real time database
+
+
     public String getUsername(){
-        EditText editText= findViewById((R.id.et_id));
+        EditText editText= findViewById((R.id.et_email));
         return editText.getText().toString();
     }
     public String getPassword(){
@@ -37,9 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        openHelper = new DatabaseHelper(this);
-        db=openHelper.getWritableDatabase();
-        presenter = new Presenter (new Model(db),this);
+        presenter = new Presenter (model,this);
 
     }
 
