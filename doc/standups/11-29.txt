@@ -1,0 +1,59 @@
+Name:Taeyang Kim
+
+What have you done since yesterday?
+	- working on test code 
+
+What are you planning on doing today?
+	- work on test code
+
+Any impediments or stumbling blocks?
+	- No
+
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Improving features about viewing courses(student).
+
+What are you planning on doing today?
+ - Reducing redundant code and needless sections.
+
+Any impediments or stumbling blocks?
+ - N/A
+
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+	Continuing to work on code
+
+What are you planning on doing today?
+	Make progress on my given task
+
+Any impediments or stumbling blocks?
+	None so far
+
+Name: Alexander Mtr
+What have you done since yesterday?
+* Plan out the logic for generating timeline based on arbitrary inputs of courses from admin and users
+
+What are you planning on doing today?
+* Begin implementing the timeline generation
+* Need to understand how I will import information from a firebase database
+
+Any impediments or stumbling blocks?
+* We need to switch from SQLite to Firebase
+
+
+Name: Jiahang Yu 
+
+What have you done since yesterday?
+	- Continuing on the database
+
+What are you planning on doing today?
+	- Continuing on the database
+
+Any impediments or stumbling blocks?
+	- Cannot store database successfully
+
+
