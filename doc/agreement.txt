@@ -6,6 +6,7 @@ Taeyang Kim (Scrum Master)
 
 Other two members were not present on first week.
 
+joined at week 2: Alexander Mtr, Eric Kweon
 
 2. Primary Method of communication (Discord, Facebook Messenger, WeChat, etc.)
     
@@ -14,13 +15,12 @@ We will be using Facebook Messenger and WeChat.
 
 3. Scheduled times for all daily standup meetings (e.g. Weekdays at 17:00 EST)
  
- Monday- NO meetings
+ Monday- 1:00PM to 2:00PM
  Tuesday- tutorial: 1:00PM to 2:00PM
  wednesday - 1:00PM to 2:00PM
  Thursday- 1:00PM to 2:00PM
  Friday- 1:00PM to 2:00PM
- Saturday- 1:00PM to 2:00PM
- Sunday- 1:00PM to 2:00PM
+
  
  
  4. Where the project will be Version Controlled (GitHub (recommended), GitLab, SVN, etc.)
