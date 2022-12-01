@@ -1,0 +1,58 @@
+Name:Taeyang Kim
+
+What have you done since yesterday?
+	- Finished refactoring registration module
+
+What are you planning on doing today?
+	- work on test code
+
+Any impediments or stumbling blocks?
+	- No
+
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Adding features about deleting courses(student).
+
+What are you planning on doing today?
+ -Improving features about viewing courses(student).
+
+Any impediments or stumbling blocks?
+ - I have some doubts about the database part. 
+
+Name: Alexander Mr
+
+What have you done since yesterday?
+* Learn about our use of SQLite for storing data
+
+What are you planning on doing today?
+* Plan the logic for generating a timeline
+
+Any impediments or stumbling blocks?
+* None
+
+
+Name: Jiahang Yu 
+
+What have you done since yesterday?
+	- Continuing on the database
+
+What are you planning on doing today?
+	- Continuing on the database
+
+Any impediments or stumbling blocks?
+	- Cannot store database successfully
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+	Started working on the code
+
+What are you planning on doing today?
+	Continue working on the code
+
+Any impediments or stumbling blocks?
+	None so far
+
+
