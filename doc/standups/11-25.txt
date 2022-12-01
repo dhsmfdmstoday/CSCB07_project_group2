@@ -1,0 +1,60 @@
+
+Name:Taeyang Kim
+
+What have you done since yesterday?
+	- Finished refactoring login module
+
+What are you planning on doing today?
+	- refactor registerion in login module
+
+Any impediments or stumbling blocks?
+	- No
+
+
+
+Name: Jiahang Yu 
+
+What have you done since yesterday?
+	- Design UI
+
+What are you planning on doing today?
+	- Create Firebase
+
+Any impediments or stumbling blocks?
+	- No
+
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Adding features about adding courses(student).
+
+What are you planning on doing today?
+ -Adding features about deleting courses(student).
+
+Any impediments or stumbling blocks?
+ - N/A
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+* Understood a large portion of the code
+
+What are you planning on doing today?
+* Finish understanding code and start thinking about completing the given task
+
+Any impediments or stumbling blocks?
+* None so far
+
+
+Name: Alexander Mtr
+
+What have you done since yesterday?
+* Run the code written by my group and test our registration/login features
+
+What are you planning on doing today?
+* Figure out how we will store/access the course inputs from our users
+
+Any impediments or stumbling blocks?
+* Our registration function did not work properly. “Register” button led to the same code as the “login” button.
+
