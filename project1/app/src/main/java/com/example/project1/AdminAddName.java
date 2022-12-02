@@ -10,9 +10,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Collections;
 
 public class AdminAddName extends AppCompatActivity {
+    CourseModel CourseModel;
+    private FirebaseAuth nFirebaseAuth=FirebaseAuth.getInstance();
+    private DatabaseReference mDataRef = FirebaseDatabase.getInstance().getReference("project1");
+
     Button add_button;
     EditText CourseName, CourseCode, OfferingSessions, Prerequisites;
     ListView lst_course;
@@ -34,7 +42,7 @@ public class AdminAddName extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    CourseModel CourseModel = new CourseModel(0, CourseName.getText().toString(), CourseCode.getText().toString(),
+                    CourseModel CourseModel = new CourseModel(CourseName.getText().toString(), CourseCode.getText().toString(),
                             Collections.singletonList(OfferingSessions.getText().toString()),
                             Collections.singletonList(Prerequisites.getText().toString()));
                     Toast.makeText(AdminAddName.this, "Successfully add the course", Toast.LENGTH_LONG).show();
