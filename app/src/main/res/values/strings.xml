@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">project1</string>
+    <string name="user_id">ID</string>
+    <string name="Button_Register">Register</string>
+    <string name="password">Password</string>
+    <string name="id">Email</string>
+    <string name="coursename">CourseName</string>
+    <string name="CourseName">Course Name</string>
+    <string name="CourseCode">Course Code</string>
+    <string name="OfferingSessions">Offering Sessions</string>
+    <string name="Prerequisites">Prerequisites</string>
+    <string name="admin_adding_course">Admin Adding Course</string>
+    <string name="add_btn">ADD</string>
+    <string name="btn_add">ADD</string>
+    <string name="add">ADD</string>
+
+</resources>
