@@ -8,102 +8,110 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Presenter {
+public class Presenter implements Contract.Presenter {
     private Model model;
     private LoginActivity login;
     private RegisterActivity register;
-    private FirebaseAuth nFirebaseAuth=FirebaseAuth.getInstance(); //firebase authentication
-    private DatabaseReference mDataRef =FirebaseDatabase.getInstance().getReference("project1");; // real time database
+    private FirebaseAuth nFirebaseAuth; //firebase authentication
+    private DatabaseReference mDataRef; // real time database
 
     public Presenter(Model model, LoginActivity view){
         this.model=model;
         this.login=view;
+        nFirebaseAuth= FirebaseAuth.getInstance();
+        mDataRef =FirebaseDatabase.getInstance().getReference("project1");
     }
     public Presenter(Model model, RegisterActivity register){
         this.model=model;
         this.register=register;
+        nFirebaseAuth= FirebaseAuth.getInstance();
+        mDataRef =FirebaseDatabase.getInstance().getReference("project1");
+
+    }
+    public Presenter(Model model, RegisterActivity register, LoginActivity activity){
+        this.model=model;
+        this.login=activity;
+        this.register=register;
     }
 
-    public void checkUsername(){
-        String username= login.getUsername();
-        login.displayMessage(username);
-    }
-    public void display(String message){
+    public void display_login(String message){
         login.displayMessage(message);
-        Toast.makeText(login.getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
+
+    public void display_register(String message){
+        register.displayMessage(message);
+        Toast.makeText(register.getApplicationContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+
     public void checkRegisteration(String []credentials){
-        nFirebaseAuth.createUserWithEmailAndPassword(credentials[0], credentials[1]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task)
-            {
-                if (!task.isSuccessful()){
-                    try{
-                        throw task.getException();
-                    }
-                    catch (FirebaseAuthWeakPasswordException weakPassword)
-                    {
-                        Toast.makeText(register.getApplicationContext(), "Password has to be at least 6 characters long", Toast.LENGTH_LONG).show();
-                    }
-                    catch (FirebaseAuthInvalidCredentialsException malformedEmail)
-                    {
-                        Toast.makeText(register.getApplicationContext(), "Not a valid email address", Toast.LENGTH_LONG).show();
-                    }
-                    catch (FirebaseAuthUserCollisionException existEmail)
-                    {
-                        Toast.makeText(register.getApplicationContext(), "Username already exists", Toast.LENGTH_LONG).show();
-                    }
-                    catch (Exception e)
-                    {
-                        Toast.makeText(register.getApplicationContext(), "Registration not completed", Toast.LENGTH_LONG).show();
+        if(!(model.ValidEmail(credentials[0]))){
+            display_register("Not a valid email address");
+        }else
+            if((model.isFoundEmail(credentials[0]))) {
+            display_register("Username already exists");
+        }
+        else if(model.PassLength(credentials[1])) {
+            display_register("Password has to be at least 6 characters long");
+        }
+        else{
+            nFirebaseAuth.createUserWithEmailAndPassword(credentials[0], credentials[1]).addOnCompleteListener(register,new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        display_register("register successful");
+                        FirebaseUser firebaseUser = nFirebaseAuth.getCurrentUser();
+
+                        UserAccount account = new UserAccount();
+
+                        account.setEmailId(firebaseUser.getEmail());
+                        account.setUserToken(firebaseUser.getUid());
+                        account.setPassword(credentials[1]);
+                        account.setCourses_completed("");
+                        mDataRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+                        register.registerSucess();
+
                     }
                 }
-                else{
-                    Toast.makeText(register.getApplicationContext(), "register successful", Toast.LENGTH_LONG).show();
-                    FirebaseUser firebaseUser = nFirebaseAuth.getCurrentUser();
-                    UserAccount account = new UserAccount();
-                    account.setEmailId(firebaseUser.getEmail());
-                    account.setUserToken(firebaseUser.getUid());
-                    account.setPassword(credentials[1]);
-                    account.setCourses_completed("");
-                    mDataRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
-                    register.registerSucess();
-                }
-            }
-        });
+            });
+        }
+
 
     }
     public void checkLogin(String []credentials) {
-        nFirebaseAuth.signInWithEmailAndPassword(credentials[0], credentials[1]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()) {
-                    try {
-                        throw task.getException();
-                    } catch (FirebaseAuthWeakPasswordException weakPassword) {
-                        display("Password has to be at least 6 characters long");
-                    } catch (FirebaseAuthInvalidCredentialsException malformedEmail) {
-                        display("Not a valid email address");
-                    } catch (FirebaseAuthInvalidUserException noEmailExist) {
-                        display("Username does not exists");
-                    } catch (Exception e) {
-                        display("Login not completed");
-                    }
-                } else {
-                    Toast.makeText(login.getApplicationContext(), "login successfully", Toast.LENGTH_LONG).show();
-                    login.LoginSucess();
-                }
-            }
-        });
-
-
+        if (!(model.ValidEmail(credentials[0]))) {
+            display_login("Not a valid email address");
+        } else if (!(model.isFoundEmail(credentials[0]))) {
+            display_login("Username does not exists");
+        } else if (model.PassLength(credentials[1])) {
+            display_login("Password has to be at least 6 characters long");
+        } else if(!model.correctCred(credentials)){
+              display_login("Invalid Password");
+        }
+        else{
+            display_login("Login successful");
+            login.LoginSucess(credentials[0]);
+        }
     }
 }
+
+
+/*
+  nFirebaseAuth.signInWithEmailAndPassword(credentials[0], credentials[1]).addOnCompleteListener(login, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if ((task.isSuccessful())) {
+                            display_login("login successful");
+                            login.LoginSucess(credentials[0]);
+                        } else {
+                            display_login("Invalid Password");
+                        }
+
+                    }
+                });
+            }
+ */

@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-
+    Model model;
     private Presenter presenter;
     public void displayMessage(String message){
         TextView textview= findViewById(R.id.message_textview);
@@ -28,11 +29,15 @@ public class LoginActivity extends AppCompatActivity {
         return credentials;
     }
     public void checkLogin(View view){
-         presenter.checkLogin(getCredentials());
+        presenter.checkLogin(getCredentials());
     }
-        public void LoginSucess(){
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        public void LoginSucess(String email){
+        if(email.equals("admin@gmail.com")){
+
+        }else {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
+    }
 
     public void handleClick(View view){
         startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
@@ -42,9 +47,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
-        presenter = new Presenter (new Model(),this);
+        model = new Model();
+        presenter = new Presenter (model,this);
 
 
     }

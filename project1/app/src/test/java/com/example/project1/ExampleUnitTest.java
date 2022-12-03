@@ -1,44 +1,73 @@
 package com.example.project1;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
+import static org.mockito.Mockito.*;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InOrder;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-@RunWith(MockitoJUnitRunner.class)
+@RunWith (MockitoJUnitRunner.class)
 public class ExampleUnitTest {
     @Mock
     LoginActivity login;
+    @Mock
     RegisterActivity register;
     @Mock
     Model model;
-    
+
+    @Mock
+    FirebaseAuth nFireAuth;
+
     @Test
     public void testPresenter(){
-        when(login.getUsername()).thenReturn("abc");
-        when(model.isUserFound("abc")).thenReturn(true);
-        Presenter presenter = new Presenter(model,login);
-        presenter.checkUsername();
-        verify(login,times(1)).LoginSucess();
-        InOrder order= inOrder(model,login);
-        order.verify(model).isUserFound(anyString());
-        order.verify(login).displayMessage("Username not found");
 
-    }
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        //check if input is received
+        when(login.getUsername()).thenReturn("abc");
+        when(!(model.ValidEmail("abc"))).thenReturn(true);
+
+        //check if email is valid
+        Presenter presenter = new Presenter(model,register,login);
+        String[] cred = {"qqq@gmail.com",""};
+        presenter.checkLogin(cred);
+        verify(login).displayMessage("Not a valid email address");
+
+        //check if not registered email is in the database
+        cred[0]= "qqqasdf@gmail.com";
+        when((model.ValidEmail("qqqasdf@gmail.com"))).thenReturn(true);
+        presenter.checkLogin(cred);
+        verify(login).displayMessage("Username does not exists");
+
+        //check if password is length <6
+        cred[0]="qqq@gmail.com";
+        when((model.isFoundEmail("qqq@gmail.com"))).thenReturn(true);
+        when((model.ValidEmail(("qqq@gmail.com")))).thenReturn(true);
+
+        when((model.PassLength(""))).thenReturn((true));
+        presenter.checkLogin(cred);
+        verify(login).displayMessage("Password has to be at least 6 characters long");
+
+        //incorrect password
+        cred[1]="123123";
+        when((model.PassLength("123123"))).thenReturn(false);
+        presenter.checkLogin(cred);
+        verify(login).displayMessage("Invalid Password");
+
+        when((model.correctCred(cred))).thenReturn(true);
+        presenter.checkLogin(cred);
+        verify(login).displayMessage("Login successful");
+
     }
 }
