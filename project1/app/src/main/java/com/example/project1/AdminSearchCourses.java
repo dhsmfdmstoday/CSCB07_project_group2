@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -53,12 +54,12 @@ public class AdminSearchCourses extends AppCompatActivity {
                         // Make temporary variables to hold children values of datareference to course
                         String nameCourse = dataSnapshot.child("name").getValue().toString();
                         String codeCourse = dataSnapshot.child("code").getValue().toString();
-                        List<String> sessionOffer = Arrays.asList(dataSnapshot.child("offering_sessions").getValue().toString().split(","));
-                        List<String> preRequisites = Arrays.asList(dataSnapshot.child("prerequisites").getValue().toString().split(","));
+                        String sessionOffer = dataSnapshot.child("offering_sessions").getValue().toString();
+                        String preRequisites = dataSnapshot.child("prerequisites").getValue().toString();
                         // Make new course model to pass into AdminFunctions
                         model = new CourseModel(nameCourse, codeCourse, sessionOffer, preRequisites);
                         Intent i = new Intent(AdminSearchCourses.this, AdminFunctions.class);
-                        i.putExtra("model_course", model);
+                        i.putExtra("model_course", (Serializable) model);
                         // Since Query found a course with inputted course code,
                         // start new activity for AdminFunctions
                         startActivity(i);

@@ -24,7 +24,7 @@ import java.util.List;
 public class AdminFunctions extends AppCompatActivity {
     private FirebaseAuth nFirebase = FirebaseAuth.getInstance();
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference("project1");
-    private CourseModel courseModel;
+    private Course course;
 
     private EditText courseName, courseCode, courseOffers, coursePreReq;
     private String newName, newCode, newOffers, newReq;
@@ -42,12 +42,12 @@ public class AdminFunctions extends AppCompatActivity {
         coursePreReq = (EditText) findViewById(R.id.pre_requisites);
         // Get Intent from AdminSearchCourses
         Intent i = getIntent();
-        courseModel = (CourseModel)i.getSerializableExtra("model_course");
+        course = (Course)i.getSerializableExtra("model_course");
         // Set displayed text to previously searched course
-        courseName.setText(courseModel.getCourseName());
-        courseCode.setText(courseModel.getCourseCode());
-        courseOffers.setText(courseModel.getOfferingSessions().toString());
-        coursePreReq.setText(courseModel.getPreRequisites().toString());
+        courseName.setText(course.getCourse_name());
+        courseCode.setText(course.getCourse_code());
+        courseOffers.setText(course.getOffering_session().toString());
+        coursePreReq.setText(course.getPrerequisites().toString());
         // Initialize buttons
         updateBtn = (Button) findViewById(R.id.update_btn);
         deleteBtn = (Button) findViewById(R.id.delete_btn);
