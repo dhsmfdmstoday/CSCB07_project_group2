@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-    Model model;
+
     private Presenter presenter;
     public void displayMessage(String message){
         TextView textview= findViewById(R.id.message_textview);
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     }
         public void LoginSucess(String email){
         if(email.equals("admin@gmail.com")){
-
+            startActivity(new Intent(LoginActivity.this, AdminActivity.class));
         }else {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        model = new Model();
+        Model model = new Model();
         presenter = new Presenter (model,this);
 
 
