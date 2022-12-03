@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">UserView</string>
+    <string name="course_code">Course Code</string>
+    <string name="add">Add</string>
+    <string name="view">View</string>
+    <string name="courseCode">Course Code</string>
+    <string name="addSt">Add</string>
+    <string name="viewSt">View</string>
+    <string name="deleteSt">Delete</string>
+    <string name="returnSt">Return</string>
+    <string name="course_codeSt">"Course Code: "</string>
+    <string name="exitStr">Exit</string>
+</resources>
