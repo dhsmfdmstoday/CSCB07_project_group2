@@ -2,7 +2,7 @@
 
 Jiahang Yu
 Xiaoran Yu
-Taeyang Kim (Scrum Master)
+Taeyang Kim (Scrum Master) 
 
 Other two members were not present on first week.
 
@@ -20,8 +20,11 @@ We will be using Facebook Messenger and WeChat.
  wednesday - 1:00PM to 2:00PM
  Thursday- 1:00PM to 2:00PM
  Friday- 1:00PM to 2:00PM
-
  
+Only Last week
+weekday -same;
+Saturday: 12PM to 12:30PM
+Sunday: 6pm to 6:15pm
  
  4. Where the project will be Version Controlled (GitHub (recommended), GitLab, SVN, etc.)
     
@@ -30,6 +33,5 @@ We will be using Facebook Messenger and WeChat.
 
  5. Anything else that is relevant to the group and project
     
-    Scrum Master will update the log (standup dcoument) after every standup meeting.
-
-
+    Scrum Master(Taeyang Kim) will update the log (standup dcoument) after standup meetings.
+    
