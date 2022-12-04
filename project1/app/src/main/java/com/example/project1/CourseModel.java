@@ -51,16 +51,18 @@ public class CourseModel {
     public boolean isCourseFound(String course){
         return course_code.contains(course);
     }
+
+
     public boolean isPrerequisiteFound(String course){
+        if(course.contains(",,")){return false;}
+        if(course.endsWith(",")){return false;}
         String[] s = course.split(",");
+
         for(int i =0;i<s.length;i++){
             if(!(isCourseFound(s[i]))){
                 return false;
             }
         }
         return true;
-    }
-    public int sizeCourse(){
-        return course_code.size();
     }
 }

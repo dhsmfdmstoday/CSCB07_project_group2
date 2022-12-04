@@ -26,8 +26,6 @@ public class CourseListAdapter  {
         mDataRef = FirebaseDatabase.getInstance().getReference("Courses");
         this.adminMDcourse = adminMDcourse;
         this.courseModel = new CourseModel();
-        System.out.println("여기는 되네"+courseModel.course_code.toString());
-
     }
 
     public CourseListAdapter(AdminAddCourse adminAddCourse) {
@@ -59,6 +57,7 @@ public class CourseListAdapter  {
         else{
             deleteCourse(course);
             Toast.makeText(adminMDcourse.getApplicationContext(), "Course deleted", Toast.LENGTH_LONG).show();
+            adminMDcourse.back();
         }
     }
 
@@ -80,8 +79,12 @@ public class CourseListAdapter  {
         else if(!(courseModel.isCourseFound(course[0]))){
             Toast.makeText(adminMDcourse.getApplicationContext(), "Course does not exists", Toast.LENGTH_LONG).show();
         }
+        else if(!(course[3].equals(""))&&(!courseModel.isPrerequisiteFound(course[3]))){
+            Toast.makeText(adminMDcourse.getApplicationContext(), "Invalid prerequisite", Toast.LENGTH_LONG).show();
+        }
         else{
             modify(course);
+            adminMDcourse.back();
         }
     }
 
@@ -97,7 +100,6 @@ public class CourseListAdapter  {
     }
 
     public void deleteCourse(String[]course){
-        System.out.println("asdf");
         mDataRef.child("Courses").child(course[0]).removeValue();
     }
 

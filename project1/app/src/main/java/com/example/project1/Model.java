@@ -18,28 +18,31 @@ public class Model implements Contract.Model {
     private FirebaseAuth nFirebaseAuth=FirebaseAuth.getInstance(); //firebase authentication
     private DatabaseReference mDataRef; // real time database
     List<String> users;
-    String [] password;
+    List<String> password;
+    List<String> Uid;
+    List<String> completed;
 
     public Model(){
         mDataRef = FirebaseDatabase.getInstance().getReference("project1");
         users = new ArrayList<String>();
-        password = new String[100];
+        password =new ArrayList<String>();
+        Uid=new ArrayList<String>();
+        completed=new ArrayList<String>();
         setUsers();
     }
     public void setUsers(){
         mDataRef.child(String.format("UserAccount")).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     UserAccount user = snapshot.getValue(UserAccount.class);
                     String email = user.getEmailId();
                     users.add(email);
-                    password[i]=user.getPassword();
-                    i++;
-
+                    password.add(user.getPassword());
+                    Uid.add(user.getUserToken());
+                    completed.add(user.getCourses_completed());
                 }
-                Log.w("Mainactivity", "Email="+ users.toString());
+                Log.w("Mainactivity", "Email="+ users.toString()+password.toString()+Uid.toString()+completed.toString());
             }
 
 
@@ -58,8 +61,12 @@ public class Model implements Contract.Model {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
     public boolean correctCred(String credentials[]){
-        return password[users.indexOf(credentials[0])].equals(credentials[1]);
+        return password.get(users.indexOf(credentials[0])).equals(credentials[1]);
 
+    }
+
+    public int getIndex(String email){
+        return users.indexOf(email);
     }
 
 

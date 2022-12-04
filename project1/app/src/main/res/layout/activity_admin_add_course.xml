@@ -12,12 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
         android:text="Seperate prerequisite using comma (,)"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_admin_add_course"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="495dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_course_pre"
@@ -29,6 +30,7 @@
         android:ems="10"
         android:hint="Prerequisite"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:selectAllOnFocus="false"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +48,7 @@
         android:ems="10"
         android:hint="Course Name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:selectAllOnFocus="false"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,6 +99,7 @@
         android:ems="10"
         android:hint="Course Code"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:selectAllOnFocus="false"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
