@@ -14,10 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements Contract.View {
 
-    Model model;
     private Presenter presenter;
-    private FirebaseAuth nFirebaseAuth=FirebaseAuth.getInstance(); //firebase authentication
-    private DatabaseReference mDataRef = FirebaseDatabase.getInstance().getReference("project1");; // real time database
 
     public void displayMessage(String message){
         TextView textview= findViewById(R.id.text_register);

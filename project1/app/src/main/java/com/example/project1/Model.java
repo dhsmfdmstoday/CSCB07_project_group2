@@ -35,7 +35,7 @@ public class Model implements Contract.Model {
                     UserAccount user = snapshot.getValue(UserAccount.class);
                     String email = user.getEmailId();
                     users.add(email);
-                    password[i]=user.getPassword().toString();
+                    password[i]=user.getPassword();
                     i++;
 
                 }

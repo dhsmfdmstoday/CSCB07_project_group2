@@ -1,12 +1,7 @@
 package com.example.project1;
 
-import android.os.Build;
+import android.util.Log;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,58 +10,57 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class CourseModel {
 
-    private DatabaseReference courseRef;
+    private DatabaseReference courseRef= FirebaseDatabase.getInstance().getReference("Courses");;
+    public List<String> course_code;
+    public List<String> offering_session;
+    public List<String> course_name;
+    public List<String> prerequisites;
 
-    private String course_name;
-    private String course_code;
-    private List<Session> offering_session;
-    private List<String> prerequisites;
 
     public CourseModel() {
-        courseRef = FirebaseDatabase.getInstance().getReference("Courses");
+        this.course_code = new ArrayList<String>();
+        this.offering_session = new ArrayList<String>();
+        this.prerequisites = new ArrayList<String>();
+        this.course_name = new ArrayList<String>();
+        setCourse();
     }
-
-    public CourseModel(String course_name, String course_code, String offering_session,
-                       String prerequisites) {
-        this.course_name = course_name;
-        this.course_code = course_code;
-        this.offering_session = new ArrayList<>();
-        this.prerequisites = new ArrayList<>();
-    }
-
-    public void getCourse(Consumer<List<Course>> callback) {
-        courseRef.addValueEventListener(new ValueEventListener() {
+    public void setCourse(){
+        courseRef.child(String.format("Courses")).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Course> courses = new ArrayList<>();
-                for (DataSnapshot CourseSnapshot: snapshot.getChildren()) {
-                    Course course = CourseSnapshot.getValue(Course.class);
-                    courses.add(course);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Course course = snapshot.getValue(Course.class);
+                    String code= course.getCourse_code();
+                    course_code.add(code);
+                    String name= course.getCourse_name();
+                    course_name.add(name);
+                    String offering = course.getOffering_session();
+                    offering_session.add(offering);
+                    String pre = course.getPrerequisites();
+                    prerequisites.add(pre);
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    callback.accept(courses);
-                }
-            }
-
+                Log.w("Course", "Course="+ course_code.toString()+ offering_session.toString()+prerequisites.toString()+course_name.toString());
+          }
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) {}
         });
     }
-
-    public void saveCourse(Course course, Consumer<Boolean> callback) {
-        courseRef.child(course.getCourse_code()).setValue(course).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    callback.accept(task.isSuccessful());
-                }
+    public boolean isCourseFound(String course){
+        return course_code.contains(course);
+    }
+    public boolean isPrerequisiteFound(String course){
+        String[] s = course.split(",");
+        for(int i =0;i<s.length;i++){
+            if(!(isCourseFound(s[i]))){
+                return false;
             }
-        });
+        }
+        return true;
+    }
+    public int sizeCourse(){
+        return course_code.size();
     }
 }

@@ -6,8 +6,8 @@
     <string name="id">Email</string>
     <string name="coursename">CourseName</string>
     <string name="CourseName">Course Name</string>
-    <string name="CourseCode">Course Code</string>
-    <string name="OfferingSessions">Offering Sessions</string>
+    <string name="Course">Course</string>
+    <string name="OfferingSessions">Session Offerings</string>
     <string name="Prerequisites">Prerequisites</string>
     <string name="admin_adding_course">Admin Adding Course</string>
     <string name="add_btn">ADD</string>
