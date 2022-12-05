@@ -42,6 +42,9 @@ public class CourseListAdapter  {
         else if(!(course[3].equals(""))&&!courseModel.isPrerequisiteFound(course[3])){
             Toast.makeText(adminAddCourse.getApplicationContext(), "Invalid prerequisite", Toast.LENGTH_LONG).show();
         }
+        else if(sameCourse(course[3].split(","),course[0])){
+            Toast.makeText(adminAddCourse.getApplicationContext(), "Prerequisite and course code are same", Toast.LENGTH_LONG).show();
+        }
         else if((course[0]).equals("") || course[2].equals("") || course[1].equals("")){
             Toast.makeText(adminAddCourse.getApplicationContext(), "Course details are empty", Toast.LENGTH_LONG).show();
         }
@@ -79,6 +82,9 @@ public class CourseListAdapter  {
         else if(!(courseModel.isCourseFound(course[0]))){
             Toast.makeText(adminMDcourse.getApplicationContext(), "Course does not exists", Toast.LENGTH_LONG).show();
         }
+        else if(sameCourse(course[3].split(","),course[0])) {
+            Toast.makeText(adminMDcourse.getApplicationContext(), "Prerequisite and course code are same", Toast.LENGTH_LONG).show();
+        }
         else if(!(course[3].equals(""))&&(!courseModel.isPrerequisiteFound(course[3]))){
             Toast.makeText(adminMDcourse.getApplicationContext(), "Invalid prerequisite", Toast.LENGTH_LONG).show();
         }
@@ -86,6 +92,18 @@ public class CourseListAdapter  {
             modify(course);
             adminMDcourse.back();
         }
+    }
+
+    public boolean sameCourse(String [] a,String b){
+        System.out.println("a" +a[0]);
+        System.out.println("b"+b);
+        for(int i=0;i<a.length;i++){
+            if(a[i].equals(b)){
+                return true;
+            }
+        }
+        return false;
+
     }
 
     public void modify(String[]course){

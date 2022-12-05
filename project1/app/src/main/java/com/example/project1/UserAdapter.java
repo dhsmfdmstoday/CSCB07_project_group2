@@ -113,7 +113,6 @@ public class UserAdapter {
         if(wordList.contains(e)){return true;}
         return false;
     }
-
     public ArrayList<String> generateTime(Stack<String> toDo){
         String temp_completed;
         String completed = model.completed.get(model.getIndex(email));
