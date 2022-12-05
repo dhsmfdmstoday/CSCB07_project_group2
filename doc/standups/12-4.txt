@@ -1,0 +1,57 @@
+
+Name:Taeyang Kim
+
+What have you done since yesterday?
+ - Added timeline create function for user story 3, and finished all the user story.
+
+What are you planning on doing today?
+ - Submit the project
+
+Any impediments or stumbling blocks?
+ - N/A
+
+Name: Jiahang Yu
+
+What have you done since yesterday?
+ - N/A
+
+What are you planning on doing today?
+ - All group member test the program
+
+Any impediments or stumbling blocks?
+ - No
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Fixing the problem for the viewing feature and test my code.
+
+What are you planning on doing today?
+ - Do some final revision on the code and test with other functionality.
+
+Any impediments or stumbling blocks?
+ - N/A
+
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+Pulled new changes from the code and started testing
+
+What are you planning on doing today?
+Test the code to make sure it works
+
+Any impediments or stumbling blocks?
+There were many changes to the code and had difficulty with merge conflicts
+
+
+Name: Alexander Mtr
+
+What have you done since yesterday?
+Implemented the algorithm into an activity that can then be displayed on the user interface
+
+What are you planning on doing today?
+Further testing the outputs
+
+Any impediments or stumbling blocks?
+None

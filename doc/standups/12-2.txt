@@ -1,0 +1,45 @@
+Name:Taeyang Kim
+
+What have you done since yesterday?
+ - Fixed issues with admin function committed by Jiahong Yu and merged (completed user story 5 and 6)
+
+What are you planning on doing today?
+ - Finish user function
+
+Any impediments or stumbling blocks?
+ - N/A
+
+
+Name: Jiahang Yu
+
+What have you done since yesterday?
+ - building model with firebase
+
+What are you planning on doing today?
+ - create list view and adapter of admin
+
+Any impediments or stumbling blocks?
+ - list view cannot be shown
+
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+Finished implementing a course search activity for admin
+
+What are you planning on doing today?
+Finish the layout file for the activity
+
+Any impediments or stumbling blocks?
+None so far
+
+Name: Alexander Mtr
+
+What have you done since yesterday?
+Wrote some of the code for generating the timeline
+
+What are you planning on doing today?
+Continuing working on the timeline
+
+Any impediments or stumbling blocks?
+None

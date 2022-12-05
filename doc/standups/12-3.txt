@@ -1,0 +1,57 @@
+Name:Taeyang Kim
+
+What have you done since yesterday?
+ - Fixed issues with user adding course function committed by Xiaoran Yu, and merged with main branch  (Completed user story 2)
+
+What are you planning on doing today?
+ - Finish user function
+
+Any impediments or stumbling blocks?
+ - N/A
+
+Name: Jiahang Yu
+
+What have you done since yesterday?
+ - finish my section and commit to git
+
+What are you planning on doing today?
+ - look at the code and get help from our group
+
+Any impediments or stumbling blocks?
+ - Code doesn’t work before fixing some issue
+
+
+Name: Xiaoran Yu
+
+What have you done since yesterday?
+ - Dealing with the mistake in database storage(wrong position).
+
+What are you planning on doing today?
+ - Fix the problem for the viewing feature and test my code.
+
+Any impediments or stumbling blocks?
+ - May need a less redundant solution. 
+
+Name: Eric Kweon
+
+What have you done since yesterday?
+Finished the layout file for the course search activity for admin and pushed my current progress to a different branch for testing purposes
+
+What are you planning on doing today?
+Start creating a general activity for admin, where the admin user can search or view all courses
+
+Any impediments or stumbling blocks?
+Mostly on design issues
+
+Name: Alexander Mtr
+
+What have you done since yesterday?
+Finished writing the algorithm for generating the timeline
+
+What are you planning on doing today?
+Implementing the timeline generation into an activity
+
+Any impediments or stumbling blocks?
+
+None
+

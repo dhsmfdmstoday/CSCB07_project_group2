@@ -2,7 +2,7 @@
 
 Jiahang Yu
 Xiaoran Yu
-Taeyang Kim (Scrum Master) 
+Taeyang Kim (Scrum Master)
 
 Other two members were not present on first week.
 
@@ -11,6 +11,7 @@ joined at week 2: Alexander Mtr, Eric Kweon
 2. Primary Method of communication (Discord, Facebook Messenger, WeChat, etc.)
     
 We will be using Facebook Messenger and WeChat.
+Scrum Master will update the log (standup dcoument) after every standup meeting.
 
 
 3. Scheduled times for all daily standup meetings (e.g. Weekdays at 17:00 EST)
@@ -20,18 +21,28 @@ We will be using Facebook Messenger and WeChat.
  wednesday - 1:00PM to 2:00PM
  Thursday- 1:00PM to 2:00PM
  Friday- 1:00PM to 2:00PM
+
  
-Only Last week
-weekday -same;
-Saturday: 12PM to 12:30PM
-Sunday: 6pm to 6:15pm
  
  4. Where the project will be Version Controlled (GitHub (recommended), GitLab, SVN, etc.)
     
     Github.
-    
+
+https://github.com/dhsmfdmstoday/CSCB07_project_group2
 
  5. Anything else that is relevant to the group and project
     
-    Scrum Master(Taeyang Kim) will update the log (standup dcoument) after standup meetings.
-    
+    The main tasks done by each member of the group:
+	User story 1 (sign up and login for user) : 	Taeyang Kim
+	User Story 2 (add, and view list of):	 	Xiaoran Yu 
+	User Story 3 (generate course time line): 	Taeyang Kim
+	User Story 4 (login as admin):			Taeyang Kim
+	User Story 5 (add course for admin):		Jiahang Yu
+	User Story 6 (view, edit, delete for admin):	Taeyang Kim
+	Test Code and Refactoring login module:		Taeyang Kim
+
+Alexander Mir: "Adding functionality for generating the timeline. It is based on the Course data structure. User Interface still needs to be designed."
+
+Eric Kweon:"Finished the layout file for the course search activity for admin and pushed my current progress to a different branch for testing purposes"
+
+
