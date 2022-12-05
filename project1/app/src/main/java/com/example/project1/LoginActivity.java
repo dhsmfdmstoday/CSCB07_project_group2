@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         if(email.equals("admin@gmail.com")){
             startActivity(new Intent(LoginActivity.this, AdminActivity.class));
         }else {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, UserActivity.class));
         }
     }
 
