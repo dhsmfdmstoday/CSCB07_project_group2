@@ -37,7 +37,6 @@ public class UserActivity extends AppCompatActivity {
         userAdapter.AddCourseUser(coursename());
         userAdapter=new UserAdapter(this,ID);
         createtable=new createTable(this);
-        clear();
     }
 
     @Override

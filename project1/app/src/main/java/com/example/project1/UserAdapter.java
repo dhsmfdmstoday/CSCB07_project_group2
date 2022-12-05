@@ -76,6 +76,7 @@ public class UserAdapter {
                 else {
                     compltd = course[i]+ "," + compltd;
                     modify(model.getIndex(email), compltd);
+                    userActivity.clear();
                 }
             }
         }
@@ -86,6 +87,7 @@ public class UserAdapter {
         Stack<String> todo = needCourse(input);
         ArrayList <String> a =generateTime(todo);
         createtable.makeTableTime(tableLayout,a);
+        userActivity.clear();
     }
 
     public boolean meetPrereq(String course, String completed,int i){
