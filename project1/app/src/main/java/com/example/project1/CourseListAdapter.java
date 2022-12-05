@@ -36,8 +36,13 @@ public class CourseListAdapter  {
     }
 
     public void checkAddCourse(String [] course){
+
         if((courseModel.isCourseFound(course[0]))){
             Toast.makeText(adminAddCourse.getApplicationContext(), "Course already exists", Toast.LENGTH_LONG).show();
+        }
+        else if(!(course[0]).matches("[A-Z]{3}[A-D]\\d{2}")){
+            Toast.makeText(adminAddCourse.getApplicationContext(), "Invalid Course Name Format", Toast.LENGTH_LONG).show();
+
         }
         else if(!(course[3].equals(""))&&!courseModel.isPrerequisiteFound(course[3])){
             Toast.makeText(adminAddCourse.getApplicationContext(), "Invalid prerequisite", Toast.LENGTH_LONG).show();
