@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="120dp"
         android:text="Seperate prerequisite using comma (,)"
@@ -18,7 +19,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_admin_add_course"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_course_pre" />
 
     <EditText
         android:id="@+id/et_course_pre"
