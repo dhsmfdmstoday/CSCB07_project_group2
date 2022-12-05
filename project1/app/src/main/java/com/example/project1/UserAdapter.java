@@ -51,7 +51,7 @@ public class UserAdapter {
         String [] cpd = compltd.split(",");
         Stack<String> todo = new Stack<String>();
         for(int i=0;i<course.length;i++){
-            getPrereq(cpd[i],cpd,todo);
+            getPrereq(course[i],cpd,todo);
         }
        if (input.equals("")){
             Toast.makeText(userActivity.getApplicationContext(), "Course is empty", Toast.LENGTH_LONG).show();
@@ -70,11 +70,10 @@ public class UserAdapter {
                 }
                 else if(!todo.isEmpty()){
                     Toast.makeText(userActivity.getApplicationContext(), "Please fulfill Prerequisite "+course[i], Toast.LENGTH_LONG).show();
-
                 }
 
                 else {
-                    compltd = "," + course[i]+ ","+ compltd;
+                    compltd = compltd + "," + course[i];
                     modify(model.getIndex(email), compltd);
                 }
             }
@@ -178,8 +177,11 @@ public class UserAdapter {
     }
     public String getPrereq(String wantTo, String [] haveDone,Stack <String> toDo){
         int a= courseModel.course_code.indexOf(wantTo);
+        if(a==-1){
+            return null;
+        }
         String preq = courseModel.prerequisites.get(a);
-        if(preq.equals("") || preq==null || a==-1){return null;}
+        if(preq.equals("") || preq==null){return null;}
         String []pre = preq.split(",");
         for(int i =0;i<pre.length;i++){
             if(!checkCourse(pre[i],haveDone) && !toDo.contains(pre[i])){
