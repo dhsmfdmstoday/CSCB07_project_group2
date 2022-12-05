@@ -132,11 +132,13 @@ public class createTable {
         String cpd =model.completed.get(a);
         String [] course = cpd.split(",");
         int count =courseModel.course_code.size();
-        System.out.println(count);
         clearTable(tableLayout);
         courseHeader(tableLayout,userActivity);
         for(int j=0;j<course.length;j++) {
-            drawTable(tableLayout, courseModel.course_code.indexOf(course[j]), userActivity);
+            int i =courseModel.course_code.indexOf(course[j]);
+            if(i!=-1) {
+                drawTable(tableLayout, courseModel.course_code.indexOf(course[j]), userActivity);
+            }
         }
 
     }

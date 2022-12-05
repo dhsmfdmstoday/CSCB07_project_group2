@@ -31,6 +31,7 @@ public class UserAdapter {
     }
 
     public boolean checkCourse(String course,String []cpd){
+
         for(int i=0;i< cpd.length;i++){
             if(cpd[i].equals(course)){
                 return true;
@@ -48,6 +49,10 @@ public class UserAdapter {
         String compltd = model.completed.get(model.getIndex(email));
         String [] course = input.split(",");
         String [] cpd = compltd.split(",");
+        Stack<String> todo = new Stack<String>();
+        for(int i=0;i<course.length;i++){
+            getPrereq(cpd[i],cpd,todo);
+        }
        if (input.equals("")){
             Toast.makeText(userActivity.getApplicationContext(), "Course is empty", Toast.LENGTH_LONG).show();
         }
@@ -63,6 +68,11 @@ public class UserAdapter {
                     Toast.makeText(userActivity.getApplicationContext(), "Invalid Course: "+course[i], Toast.LENGTH_LONG).show();
 
                 }
+                else if(!todo.isEmpty()){
+                    Toast.makeText(userActivity.getApplicationContext(), "Please fulfill Prerequisite "+course[i], Toast.LENGTH_LONG).show();
+
+                }
+
                 else {
                     compltd = "," + course[i]+ ","+ compltd;
                     modify(model.getIndex(email), compltd);
@@ -94,7 +104,7 @@ public class UserAdapter {
         List<String> al = new ArrayList<String>();
         al = Arrays.asList(cd);
         for(int j=0; j<c.length;j++){
-            if(!al.contains(c[j]) ){
+            if(!al.contains(c[j]) && !c[j].equals("") ){
                 return false;
             }
         }
@@ -105,7 +115,6 @@ public class UserAdapter {
     public ArrayList<String> generateTime(Stack<String> toDo){
         String temp_completed;
         String completed = model.completed.get(model.getIndex(email));
-        String [] cpd = completed.split(",");
         ArrayList<String> aaa = new ArrayList<String>();
         Stack <String> toDO_2 = new Stack<String>();
 
@@ -114,6 +123,7 @@ public class UserAdapter {
                 String todo = "";
                 temp_completed= completed;
                 while(!toDo.isEmpty()) {
+                    if(toDo.peek().equals("")){toDo.pop();}
                     if (meetPrereq(toDo.peek(), temp_completed,i)) {
                         todo = todo + "," + toDo.peek();
                         completed = completed + "," + toDo.peek();toDo.pop();
@@ -128,6 +138,7 @@ public class UserAdapter {
                 while(!toDO_2.isEmpty()){
                     toDo.push(toDO_2.pop());
                 }
+                if(toDo.isEmpty() && toDO_2.isEmpty()){break;}
             }
         }
         return aaa;
@@ -168,7 +179,7 @@ public class UserAdapter {
     public String getPrereq(String wantTo, String [] haveDone,Stack <String> toDo){
         int a= courseModel.course_code.indexOf(wantTo);
         String preq = courseModel.prerequisites.get(a);
-        if(preq==null){return null;}
+        if(preq.equals("") || preq==null || a==-1){return null;}
         String []pre = preq.split(",");
         for(int i =0;i<pre.length;i++){
             if(!checkCourse(pre[i],haveDone) && !toDo.contains(pre[i])){

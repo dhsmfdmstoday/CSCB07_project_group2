@@ -21,6 +21,10 @@ public class UserActivity extends AppCompatActivity {
         return editText.getText().toString().replaceAll("\\s+","");
     }
 
+    public void clear() {
+        editText = findViewById(R.id.et_course_user);
+        editText.setText("");
+    }
     public void Timetable(View v){
          userAdapter.Letsgo(tableLayout,coursename());
     }
@@ -33,6 +37,7 @@ public class UserActivity extends AppCompatActivity {
         userAdapter.AddCourseUser(coursename());
         userAdapter=new UserAdapter(this,ID);
         createtable=new createTable(this);
+        clear();
     }
 
     @Override
@@ -43,7 +48,7 @@ public class UserActivity extends AppCompatActivity {
         tableLayout = (TableLayout) findViewById(R.id.table_user);
         createtable = new createTable(this);
         if(extras !=null) {
-             ID = extras.getString("userID");
+             ID = extras.getString("id");
         }
         else{
             ID = "qqq@gmail.com";
