@@ -41,7 +41,8 @@ public class UserAdapter {
     }
 
     public void modify(int i, String compltd){
-        mDataRef.child(model.Uid.get(i)).child("courses_completed").setValue(compltd.substring(1));
+        if(compltd.endsWith(",")){compltd=compltd.substring(0,compltd.length()-1);}
+        mDataRef.child(model.Uid.get(i)).child("courses_completed").setValue(compltd);
         Toast.makeText(userActivity.getApplicationContext(), "Course Added", Toast.LENGTH_LONG).show();
     }
 
@@ -73,7 +74,7 @@ public class UserAdapter {
                 }
 
                 else {
-                    compltd = compltd + "," + course[i];
+                    compltd = course[i]+ "," + compltd;
                     modify(model.getIndex(email), compltd);
                 }
             }
